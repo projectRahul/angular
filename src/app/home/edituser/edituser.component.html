@@ -1,0 +1,52 @@
+ <app-home></app-home>
+ <form class="form-horizontal" [formGroup]="editUserForm" (ngSubmit)="updateUser()">
+ 	<div class="panel panel-primary">
+ 		<div class="panel-heading">
+ 			<h3 class="panel-title">Edit User Details</h3>
+ 		</div>
+ 		<input type="hidden" id="id" formControlName="id" name="id" class="form-control">
+ 		<div class="panel-body">
+ 			<div class="form-group" [ngClass] = "{'has-error' : editUserForm.get('name').errors  && (editUserForm.get('name').touched || editUserForm.get('name').dirty)}">
+ 				<label class="col-sm-2 control-label">Name</label>
+ 				<div class="col-sm-8">
+ 					<input type="text" id="name" formControlName="name" name="name" class="form-control">
+ 					<span class="help-block" *ngIf="editUserForm.get('name').errors && (editUserForm.get('name').touched || editUserForm.get('name').dirty)">
+ 						Name is required
+ 					</span>
+ 				</div>
+ 			</div>
+ 			<div class="form-group" [ngClass] = "{'has-error' : editUserForm.get('mobile').errors  && (editUserForm.get('mobile').touched || editUserForm.get('mobile').dirty)}">
+ 				<label class="col-sm-2 control-label">Mobile</label>
+ 				<div class="col-sm-8">
+ 					<input type="text" id="mobile" formControlName="mobile" name="mobile" class="form-control">
+ 					<span class="help-block" *ngIf="editUserForm.get('mobile').errors && (editUserForm.get('mobile').touched || editUserForm.get('mobile').dirty)">
+ 						Mobile number is required
+ 					</span>
+ 				</div>
+ 			</div> 
+ 			<div class="form-group" [ngClass] = "{'has-error' : editUserForm.get('email').errors  && (editUserForm.get('email').touched || editUserForm.get('email').dirty)}">
+ 				<label class="col-sm-2 control-label">Email</label>
+ 				<div class="col-sm-8">
+ 					<input type="text" id="email" formControlName="email" name="email" class="form-control">
+ 					<span class="help-block" *ngIf="editUserForm.get('email').errors && (editUserForm.get('email').touched || editUserForm.get('email').dirty)">
+ 						Email is required
+ 					</span>
+ 				</div>
+ 			</div> 
+ 			<div class="form-group" [ngClass] = "{'has-error' : editUserForm.get('password').errors  && (editUserForm.get('password').touched || editUserForm.get('password').dirty)}">
+ 				<label class="col-sm-2 control-label">Password</label>
+ 				<div class="col-sm-8">
+ 					<input type="password" id="password" formControlName="password" name="password" class="form-control">
+ 					<span class="help-block" *ngIf="editUserForm.get('password').errors && (editUserForm.get('password').touched || editUserForm.get('password').dirty)">
+ 						Password number is required
+ 					</span>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="panel-footer">
+ 			<div class="btn-toolbar">
+	 			<button class="btn btn-primary" type="submit" [disabled]="editUserForm.invalid">Update</button>
+	 		</div>
+ 		</div>
+ 	</div>
+ </form>

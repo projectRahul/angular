@@ -1,0 +1,16 @@
+
+<div class="container" *ngIf="!isUserLoggedIn">
+  <nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+      <li>
+        <a routeLinkActive="active" routerLink="login">Login</a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="register">Register</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
