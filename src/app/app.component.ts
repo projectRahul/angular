@@ -10,10 +10,10 @@ export class AppComponent {
   public isUserLoggedIn: boolean;
 
   constructor() {
-  	if(sessionStorage.getItem('userLoginId') !='' && sessionStorage.getItem('userLoginId') !='null' && sessionStorage.getItem('userLoginId') !='0'){
-  		this.isUserLoggedIn=true;
-  	}else{
-  		this.isUserLoggedIn=false;
-  	}
+    if(sessionStorage.length == 0 || sessionStorage.getItem('userLoginId') =='0'){
+      this.isUserLoggedIn=false;
+    }else{
+      this.isUserLoggedIn=true;
+    }
   }
 }

@@ -9,13 +9,15 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   public loginUserImage: string;
 	public loginUserName: string;
+  
   constructor(private router: Router) {
-  	if(sessionStorage.getItem('userLoginId') !=='' && sessionStorage.getItem('userLoginId') !=='0'){
-  		this.loginUserImage = sessionStorage.getItem('userImage');
+
+    if(sessionStorage.length != 0 || sessionStorage.getItem('userLoginId') =='0'){
+      this.loginUserImage = sessionStorage.getItem('userImage');
       this.loginUserName = sessionStorage.getItem('userLoginName');
-  	}else{
-  		this.router.navigate(['./login']);
-  	}
+    }else{
+      this.router.navigate(['./login']);
+    }
   }
 
   ngOnInit() {
