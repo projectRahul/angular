@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -16,6 +16,8 @@ import { PageNotFoundComponent } from './pnf/page-not-found.component';
 
 import { HomeModule } from './home/home.module';
 import { NotifierModule } from 'angular-notifier';
+import { SharedModule } from './shared/shared.module';
+import { SharedComponent } from './shared/shared.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +26,17 @@ import { NotifierModule } from 'angular-notifier';
     RegisterComponent,
     // HomeComponent,
     PageNotFoundComponent,
+    SharedComponent
   ],
   imports: [
     BrowserModule,
     // AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
+    
     HttpClientModule,
     HomeModule,
     AppRoutingModule,
-    NotifierModule
+    NotifierModule,
+    SharedModule
   ],
   providers: [RegisterService,BaseurlService],
   bootstrap: [AppComponent]
