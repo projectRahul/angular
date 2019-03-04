@@ -11,6 +11,8 @@ import { RegisterComponent } from './register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterService } from './register.service';
 import { BaseurlService } from './baseurl.service';
+import { CheckisloginService } from './checkislogin.service';
+
 // import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './pnf/page-not-found.component';
 
@@ -38,7 +40,7 @@ import { SharedComponent } from './shared/shared.component';
     NotifierModule,
     SharedModule
   ],
-  providers: [RegisterService,BaseurlService],
+  providers: [RegisterService,BaseurlService,CheckisloginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
