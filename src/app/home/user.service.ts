@@ -25,12 +25,14 @@ export class UserService {
     }
 
     getUserList(): Observable<IUser[]> {
-        return this.httpClient.get<IUser[]>(this.baseUrl+'list_user.php')
+        // return this.httpClient.get<IUser[]>(this.baseUrl+'list_user.php')
+        return this.httpClient.get<IUser[]>(this.baseUrl+'/user')
             .pipe(catchError(this.handleError));
     }
 
     getUserById(id: number): Observable<IUser[]> {
-        return this.httpClient.get<IUser[]>(this.baseUrl+'list_user.php?id='+id)
+        // return this.httpClient.get<IUser[]>(this.baseUrl+'list_user.php?id='+id)
+        return this.httpClient.get<IUser[]>(this.baseUrl+'/user/:'+id)
             .pipe(catchError(this.handleError));
     }
 
@@ -40,7 +42,8 @@ export class UserService {
     }
 
     deleteUser(id: number): Observable<IUser> {
-        return this.httpClient.post<IUser>(this.baseUrl+'delete.php', id)
+        // return this.httpClient.post<IUser>(this.baseUrl+'delete.php', id)
+        return this.httpClient.delete<IUser>(this.baseUrl+'/user/:'+id)
         .pipe(catchError(this.handleError));
     }
 
