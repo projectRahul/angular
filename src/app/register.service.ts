@@ -23,12 +23,14 @@ export class RegisterService {
     }
 
     addUser(user: IRegister): Observable<IRegister> {
-        return this.httpClient.post<IRegister>(this.baseUrl+'register.php', user)
+        // return this.httpClient.post<IRegister>(this.baseUrl+'register.php', user)
+        return this.httpClient.post<IRegister>(this.baseUrl+'user', user)
         .pipe(catchError(this.handleError));
     }
     
     loginUser(user: IRegister): Observable<IRegister> {
-        return this.httpClient.post<IRegister>(this.baseUrl+'login.php', user)
+        // return this.httpClient.post<IRegister>(this.baseUrl+'login.php', user)
+        return this.httpClient.post<IRegister>(this.baseUrl+'user/login', user)
         .pipe(catchError(this.handleError));
     }
 }
