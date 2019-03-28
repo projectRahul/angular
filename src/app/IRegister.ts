@@ -7,4 +7,6 @@ export interface IRegister {
 	confirm_password : string;
 	status : string;
 	message : string;
+	image : string;
+	_id : string;
 }

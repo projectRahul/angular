@@ -35,9 +35,12 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
+      this.registerForm.value.password = this.registerForm.value.passwordGroup.password;
+      this.registerForm.value.image = '';
       this.register_service.addUser(this.registerForm.value)
         .subscribe( data => {
-          if(data.status == 'success'){
+          // if(data.status == 'success'){
+          if(data.status == '1'){
             this.notifier.notify( 'success', 'Register successfully!' );
             // this.router.navigate(['login']);
           }else{

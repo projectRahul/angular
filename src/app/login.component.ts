@@ -38,14 +38,18 @@ export class LoginComponent implements OnInit {
     // mapFormValuesToLoginModel();
     this.register_service.loginUser(this.loginForm.value)
       .subscribe( data => {
-        if(data.status == 'success'){
-          // console.log(data['data']['id']);
-          sessionStorage.setItem('userLoginId', data['data']['id']);
-          sessionStorage.setItem('userLoginName', data['data']['name']);
-          sessionStorage.setItem('userImage', data['data']['image']);
+        console.log(data[0]['status']);
+        // if(data.status == 'success'){
+        if(data[0]['status'] == '1'){
+          // sessionStorage.setItem('userLoginId', data['data']['id']);
+          // sessionStorage.setItem('userLoginName', data['data']['name']);
+          // sessionStorage.setItem('userImage', data['data']['image']);
+          sessionStorage.setItem('userLoginId', data[0]['_id']);
+          sessionStorage.setItem('userLoginName', data[0]['name']);
+          sessionStorage.setItem('userImage', data[0]['image']);
           this.router.navigate(['./home']);
         }else{
-          this.notifier.notify( 'danger', data.message );
+          this.notifier.notify( 'danger', 'Wrong Credentials' );
         }
     });
   }
